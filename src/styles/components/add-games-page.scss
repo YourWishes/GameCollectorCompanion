@@ -1,0 +1,24 @@
+.page.page-add-games {
+    > form {
+        width: 100%;
+        padding: $pageInset;
+        
+        > input, > select {
+            margin-bottom: $pageInset;
+        }
+        
+        > .btn {
+            @include button();
+        }
+        
+        > label {
+            width: 100%;
+            display: block;
+        }
+        
+        > .btn-add {
+            display: block;
+            width: 100%;
+        }
+    }
+}

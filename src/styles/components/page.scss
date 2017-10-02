@@ -1,0 +1,166 @@
+@mixin fontSize($scale:1) {
+    font-size: 4.5vw*$scale;
+}
+
+$pageInset: 6px;
+$green: #3AF083;
+$red: #E43A3A;
+$orange: #F0833A;
+$yellow: #FBE514;
+$blue: #93C8FF;
+$borderRadius: 6px;
+
+@mixin cg($l:red,$r:white) {
+    //Simple L to R console gradient.
+    background: $l;
+    background: -moz-linear-gradient(left, $l 0%, $r 100%);
+    background: -webkit-linear-gradient(left, $l 0%, $r 100%);
+    background: linear-gradient(to right, $l 0%, $r 100%);
+}
+
+@mixin consoles() {
+    //Basic colors for the various consoles.
+    &.console-Vita {@include cg(#1C72BD, #5F5F5F);}
+    &.console-NGC {@include cg(#9E93D5, #504A88);}
+    &.console-2600 {@include cg(#D67629, #793913);}
+    &.console-Wii {@include cg(#DDD, #EEE);}
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+    outline: none !important;
+} 
+
+@mixin input() {
+    width: 100%;
+    border: 1px solid #CCC;
+    padding: 8px;
+    border-radius: $borderRadius;
+    transition: all 0.2s ease;
+    color: black;
+    
+    &:active, &:focus, &:hover {
+        border-color: $blue;
+    }
+    
+    @include fontSize();
+}
+
+@mixin button() {
+    @include input();
+    background: #EEE;
+    cursor: pointer;
+    
+    &:hover {
+        background: white;
+    }
+}
+
+.page {
+    width: 100vw;
+    overflow-x: hidden;
+    padding-top: $navbarHeight;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+    @include fontSize();
+    
+    > .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+    }
+    
+    &.loading {
+        > .loader {
+            height: 100%;
+        }
+    }
+    
+    > .search-box {
+        width: 100%;
+        padding: 0 $pageInset;
+        margin-top: $pageInset;
+        
+        > input {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            width: 76%;
+        }
+        
+        > .btn {
+            @include button();
+            width: 12%;
+            display: inline-block;
+            height: 100%;
+            text-align: center;
+            
+            &.search {
+                border-left: none;
+                border-radius: 0;
+            }
+            
+            &.options {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                border-left: none;
+            }
+        }
+        
+        &.menu-open {
+            > input, > .btn {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+    }
+            
+    > .menu-box {
+        height: auto;
+        max-height: 0px;
+        overflow: hidden;
+        width: 100%;
+        transition: max-height 0.2s ease, margin-bottom 0.2s ease, border 0.2s ease;
+        margin: 0 $pageInset;
+        padding: 0 $pageInset;
+        background: #FDFDFD;
+        border: 0px solid #CCC;
+        border-top: none;
+        margin-bottom: $pageInset;
+        
+        &.open {
+            max-height: 50vh;
+            margin-bottom: $pageInset;
+            border-width: 1px;
+            border-bottom-left-radius: $borderRadius;
+            border-bottom-right-radius: $borderRadius;
+        }
+        
+        > .btn {
+            @include button();
+            display: inline-block;
+            width: 12%;
+            margin: $pageInset 0;
+            text-align: center;
+        }
+    }
+    
+    input,select,textarea {
+        @include input();
+    }
+    
+    textarea {
+        @include fontSize(0.75);
+    }
+}
+
+@import "games-page";
+@import "add-games-page";
+@import "view-games-page";

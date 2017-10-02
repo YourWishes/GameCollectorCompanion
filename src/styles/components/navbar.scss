@@ -1,0 +1,51 @@
+
+
+.navbar {
+    //Actual navbar itself
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $navbarHeight;
+    background: red;
+    z-index: $navbarZ;
+    background: #EFEFEF;
+    border-bottom: 1px solid #DEDEDE;
+    font-family: $navbarFont;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    
+    > .btn {
+        display: inline-block;
+        padding: 2vh 4vw;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        color: #AAA;
+        font-size: 20px;
+        border: none;
+        background: none;
+        
+        &.right {
+            left: auto;
+            right: 0;
+        }
+    }
+    
+    > .backButton {
+    }
+    
+    > .app-title {
+        display: inline-block;
+        max-width: 72%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}

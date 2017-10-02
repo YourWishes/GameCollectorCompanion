@@ -1,0 +1,77 @@
+.page.page-view-game {
+    > .inner {
+        width: 100%;
+        padding: $pageInset;
+        display: block;
+        
+        > .title {
+            @include fontSize(1.5);
+            
+            > .icons {
+                float: right;
+                
+                > a, > div {
+                    font-size: 1em;
+                    color: #AAA;
+                    display: block;
+                    cursor: pointer;
+                    margin: $pageInset;
+                }
+            }
+        }
+        
+        > .box {
+            margin: $pageInset/2 0;
+            > .icon {
+                height: 5vw;
+                display: inline-block;
+                font-size: 0;
+                margin-right: $pageInset;
+                
+                > img {
+                    height:100%;
+                    width: auto;
+                }
+                
+                &.flag {
+                    border: 1px solid #DDD;
+                }
+            }
+        }
+        
+        > .subtitle {
+            
+        }
+        
+        > .notes {
+            @include fontSize(0.75);
+            color: #666;
+            margin-bottom: $pageInset;
+        }
+    }
+        
+    > .wear {
+        width: 100%;
+        display: inline-block;
+        height: 15vh;
+        position: relative;
+        margin: $pageInset/2 0;
+        
+        > span {
+            position: absolute;
+            display: block;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        &.green{background: $green;}
+        &.blue{background: $blue;}
+        &.yellow{background: $yellow;}
+        &.orange{background: $orange;}
+        &.red{background: $red;}
+        &.black{background: #333;}
+        &.blank{background: #DDD;}
+    }
+}
