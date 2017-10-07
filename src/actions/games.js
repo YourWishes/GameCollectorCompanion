@@ -63,6 +63,8 @@ export function getFlagFromRegion(reg) {
             return FLAG_KOREA;
         case "NTSC-U/C":
             return FLAG_USA;
+        case "Region Free":
+            return FLAG_UNKNOWN;
         default:
             return FLAG_UNKNOWN;
     }
@@ -70,6 +72,8 @@ export function getFlagFromRegion(reg) {
     
 export function getClassFromWear(wear) {
     switch(wear) {
+        case "Sealed":
+            return "pink";
         case "Great":
             return "green";
         case "Good":

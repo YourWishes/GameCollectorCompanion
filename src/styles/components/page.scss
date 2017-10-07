@@ -8,6 +8,7 @@ $red: #E43A3A;
 $orange: #F0833A;
 $yellow: #FBE514;
 $blue: #93C8FF;
+$pink: #FF69B4;
 $borderRadius: 6px;
 
 @mixin cg($l:red,$r:white) {
@@ -20,10 +21,11 @@ $borderRadius: 6px;
 
 @mixin consoles() {
     //Basic colors for the various consoles.
-    &.console-Vita {@include cg(#1C72BD, #5F5F5F);}
+    /*&.console-Vita {@include cg(#1C72BD, #5F5F5F);}
     &.console-NGC {@include cg(#9E93D5, #504A88);}
     &.console-2600 {@include cg(#D67629, #793913);}
     &.console-Wii {@include cg(#DDD, #EEE);}
+    &.console-SNES {@include cg(#F8FA1A, #2CD324);}*/
 }
 
 * {
@@ -149,6 +151,7 @@ $borderRadius: 6px;
             width: 12%;
             margin: $pageInset 0;
             text-align: center;
+            margin-right: $pageInset;
         }
     }
     

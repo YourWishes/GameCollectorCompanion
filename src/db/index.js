@@ -1,4 +1,4 @@
-import * as Driver from './localforage';
+import * as Driver from './server';
 
 export function setup() {return Driver.setup();};
 export function getConsoles() {return Driver.getConsoles();}

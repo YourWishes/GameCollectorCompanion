@@ -16,6 +16,10 @@ var CopyPluginResConfig = new CopyPlugin([
     }
 ]);
 
+//const dir =  '/../GameCollectorServer/www';
+const dir =  '/www';
+
+
 // export webpack config
 module.exports = {
     devtool: 'source-map',
@@ -23,7 +27,7 @@ module.exports = {
         './src/app.js'
     ],
     output: {
-        path: __dirname + '/www',
+        path: __dirname + dir,
         filename: "bundle.js"
     },
     resolve: {

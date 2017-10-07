@@ -7,7 +7,7 @@
     "keywords": [],
     "scripts": {
         "test": "node_modules\\.bin\\webpack-dev-server",
-        "build": "node_modules\\.bin\\webpack --config webpack.production.config.js",
+        "build": "node_modules\\.bin\\webpack --config webpack.production.config.js && phonegap build",
         "serve": "npm run-script build && phonegap serve"
     },
     "repository": {

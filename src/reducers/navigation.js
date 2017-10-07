@@ -1,10 +1,27 @@
 'use strict';
 
-import {SET_TITLE,SET_BACK,SET_TITLE_AND_BACK} from './../actions/navigation';
+import {SET_TITLE,SET_BACK,SET_TITLE_AND_BACK,SET_GAMES_SEARCH} from './../actions/navigation';
 
 const initialState = {
     title: "Untitled"
 };
+
+//To try and fight React's really annoying non deep happy objects we have this
+let updateState = function(original, changes) {
+    let newState = {};
+    //Set the newState to have all the old state stuff
+    let keys = Object.keys(original);
+    for(var i = 0; i < keys.length; i++) {
+        newState[keys[i]] = original[keys[i]];
+    }
+    
+    keys = Object.keys(changes);
+    for(var i = 0; i < keys.length; i++) {
+        newState[keys[i]] = changes[keys[i]];
+    }
+    
+    return newState;
+}
 
 function navigation(state, action) {
     if(typeof state === typeof undefined) {
@@ -13,23 +30,14 @@ function navigation(state, action) {
     
     switch(action.type) {
         case SET_TITLE:
-            state = {
-                title: action.title,
-                back: state.back
-            };
-            return state;
+            return updateState(state, {title:action.title});
         case SET_BACK:
-            state = {
-                title: state.title,
-                back: action.back
-            };
+            return updateState(state, {back: action.back});
             return state;
         case SET_TITLE_AND_BACK:
-            state = {
-                title: action.title,
-                back: action.back
-            };
-            return state;
+            return updateState(state, {title:action.title, back: action.back});
+        case SET_GAMES_SEARCH:
+            return updateState(state, {games_search: action.search});
         default:
             return state;
     }

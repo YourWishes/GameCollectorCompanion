@@ -15,10 +15,12 @@ const REGIONS = [
     "PAL-EU",
     "NTSC-J",
     "NTSC-K",
-    "NTSC-U/C"
+    "NTSC-U/C",
+    "Region Free"
 ];
 
 const WEARS = [
+    "Sealed",
     "Great",
     "Good",
     "Ok",

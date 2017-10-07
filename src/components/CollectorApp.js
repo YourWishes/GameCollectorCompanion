@@ -24,10 +24,11 @@ class CollectorApp extends Component {
                     <Navbar />
                     <Switch>
                         <Route exact path="/"  component={HomePage} />
-                        <Route exact path="/games" component={GamesPage} />
                         <Route exact path="/games/add" component={AddGamesPage} />
                         <Route exact path="/games/view/:game" component={ViewGamePage} />
                         <Route exact path="/games/edit/:game" component={EditGamesPage} />
+                        <Route exact path="/games" component={GamesPage} />
+                        <Route exact path="/games/:search" component={GamesPage} />
                     </Switch>
                 </div>
             </HashRouter>
